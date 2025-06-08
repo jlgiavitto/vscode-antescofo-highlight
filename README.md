@@ -1,6 +1,6 @@
 # Extension Antescofo pour Visual Studio Code
 
-Cette extension fournit la coloration syntaxique pour le langage Antescofo dans Visual Studio Code.
+Cette extension fournit la coloration syntaxique pour le langage Antescofo dans Visual Studio Code, ainsi que quelques commandes à destination d'un objet antescofo~ via OSC. Cf. aussi l'extension analgue pour [Antescofo Sublime Package](https://github.com/arshiacont/antescofo-sublime-package/tree/master)
 
 ## À propos d'Antescofo
 
@@ -8,27 +8,34 @@ Antescofo est un couplage d'une machine d'écoute temps réel avec un langage sy
 
 ## Fonctionnalités
 
-- **Coloration syntaxique** : Support pour les éléments syntaxiques d'Antescofo
-- **Reconnaissance des mots-clés** : Événements (NOTE, CHORD, TRILL, BPM) et actions (GROUP, LOOP, etc.)
-- **Support des identifiants spéciaux** :
-  - Variables `$variable`
-  - Processus `::process`
-  - Fonctions et attributs `@function`
-  - Objets `obj::object`
-  - Patterns `pattern::pattern`
-  - Tracks `track::track`
-- **Commentaires** : Support des commentaires en ligne (`//`, `;`) et bloc (`/* */`)
-- **Chaînes de caractères** et nombres
-- **Auto-complétion** des crochets et guillemets
+- **Coloration syntaxique :** support pour les éléments syntaxiques d'Antescofo
+  - **Reconnaissance des mots-clés** : Événements (NOTE, CHORD, TRILL, BPM) et actions (GROUP, LOOP, etc.)
+  - **Commentaires** : Support des commentaires en ligne (`//`, `;`) et bloc (`/* */`)
+  - **Chaînes de caractères** et nombres
+  - **Auto-complétion** des crochets et guillemets
+    - **Support des identificateur** :
+    - Variables `$variable`
+    - Processus `::process`
+    - Fonctions et attributs `@function`
+    - Objets `obj::object`
+    - Patterns `pattern::pattern`
+    - Tracks `track::track`
+
+- **Commandes :** envoyées via OSC à Antescofo. Accessible via la palette de commande
+  - "Antescofo: Send Full Score"
+  - "Antescofo: Send Selection"
+  - "Antescofo: Play"
+  - "Antescofo: Play from Cursor"
+  - "Antescofo: Stop"
+  - "Antescofo: Eval Command"
+On peut changer le port et l'adresse à laquelle on contacte antescofo~ via le fichier de configuration (pomme-,) puis en filtrant avec "antescofo" pour retrouver les variables correspodnantes.
 
 ## Extensions de fichiers supportées
 
 - `.asco`
 - `.asco.txt`
 
-## Installation
-
-### Méthode 1: Installation manuelle
+## Installation manuelle
 
 1. Téléchargez ou clonez ce dépôt dans le dossier dans votre répertoire d'extensions VS Code :
    - **Windows**: `%USERPROFILE%\.vscode\extensions\`
@@ -42,10 +49,12 @@ Antescofo est un couplage d'une machine d'écoute temps réel avec un langage sy
 ```
 antescofo-language-support/
 ├── package.json                    # Configuration de l'extension
+├── extension.js                    # Code ppour l'envoi des commandes OSC
 ├── language-configuration.json     # Configuration du langage
-├── syntaxes/
-│   └── antescofo-language.json     # Définition de la grammaire
-└── README.md                       # Ce fichier
+├── README.md                       # Ce fichier
+└── syntaxes/
+    └── antescofo-language.json     # Définition de la grammaire
+
 ```
 
 ## Utilisation
