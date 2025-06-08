@@ -1,0 +1,145 @@
+{
+    "name": "Antescofo",
+    "scopeName": "source.antescofo",
+    "fileTypes": ["asco", "asco.txt"],
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#numbers"
+        },
+        {
+            "include": "#event-keywords"
+        },
+        {
+            "include": "#action-keywords"
+        },
+        {
+            "include": "#at-identifiers"
+        },
+        {
+            "include": "#dollar-identifiers"
+        },
+        {
+            "include": "#colon-identifiers"
+        },
+        {
+            "include": "#operators"
+        },
+        {
+            "include": "#builtin-functions"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.semicolon.antescofo",
+                    "match": ";.*$"
+                },
+                {
+                    "name": "comment.line.double-slash.antescofo",
+                    "match": "//.*$"
+                },
+                {
+                    "name": "comment.block.antescofo",
+                    "begin": "/\\*",
+                    "end": "\\*/"
+                }
+            ]
+        },
+        "strings": {
+            "patterns": [
+                {
+                    "name": "string.quoted.double.antescofo",
+                    "begin": "\"",
+                    "end": "\"",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.antescofo",
+                            "match": "\\\\."
+                        }
+                    ]
+                }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.float.antescofo",
+                    "match": "\\b\\d+\\.\\d+([eE][+-]?\\d+)?\\b"
+                },
+                {
+                    "name": "constant.numeric.integer.antescofo",
+                    "match": "\\b\\d+\\b"
+                }
+            ]
+        },
+        "event-keywords": {
+            "name": "keyword.control.event.antescofo",
+            "match": "(?i)\\b(note|chord|trill|bpm|event)\\b"
+        },
+        "action-keywords": {
+            "name": "keyword.control.action.antescofo",
+            "match": "(?i)\\b(abort|action|and|at|before|bind|case|closefile|curve|do|during|else|expr|false|forall|gfwd|group|hook|if|imap|in|jump|kill|let|lfwd|loop|map|ms|multi|nap|ro_trace|of|off|on|openoutfile|oscoff|oscon|oscrecv|oscsend|parfor|patch|ports|start|state|stop|switch|symbtab|tempo|transpose|true|until|value|variance|whenever|where|while|with)\\b"
+        },
+        "at-identifiers": {
+            "patterns": [
+                {
+                    "name": "entity.name.function.definition.antescofo",
+                    "match": "@(fun_def|obj_def|proc_def|pattern_def|track_def|macro_def|whenever|abort|broadcast|init)\\b"
+                },
+                {
+                    "name": "keyword.other.directive.antescofo",
+                    "match": "@(insert|insert_once|uid|lid)\\b"
+                },
+                {
+                    "name": "entity.other.attribute-name.antescofo",
+                    "match": "@(abort|action|ante|back|back_in|back_in_out|back_out|bounce|bounce_in|bounce_in_out|bounce_out|circ|circ_in|circ_in_out|circ_out|coef|command|conservative|cubic|cubic_in|cubic_in_out|cubic_out|date|dsp_channel|dsp_cvar|dsp_inlet|dsp_link|dsp_outlet|dump|elastic|elastic_in|elastic_in_out|elastic_out|eval_when_load|exclusive|exp|exp_in|exp_in_out|exp_out|fermata|global|grain|guard|hook|immediate|inlet|is_undef|jump|kill|label|latency|linear_in|linear_in_out|linear_out|local|loose|modulate|name|norec|pizz|plot|post|progressive|quad|quad_in|quad_in_out|quad_out|quart|quart_in|quart_in_out|quart_out|quint|quint_in|quint_in_out|quint_out|rdate|refractory|rplot|sine|sine_in|sine_in_out|sine_out|staccato|staticscope|sync|target|tempo|tempovar|tight|transpose|type)\\b"
+                },
+                {
+                    "name": "support.function.builtin.antescofo",
+                    "match": "@[a-zA-Z_][a-zA-Z0-9_]*\\b"
+                }
+            ]
+        },
+        "dollar-identifiers": {
+            "name": "variable.other.antescofo",
+            "match": "\\$[a-zA-Z_][a-zA-Z0-9_]*\\b"
+        },
+        "colon-identifiers": {
+            "patterns": [
+                {
+                    "name": "entity.name.type.process.antescofo",
+                    "match": "::[a-zA-Z_][a-zA-Z0-9_]*\\b"
+                },
+                {
+                    "name": "entity.name.type.object.antescofo",
+                    "match": "obj::[a-zA-Z_][a-zA-Z0-9_]*\\b"
+                },
+                {
+                    "name": "entity.name.type.pattern.antescofo",
+                    "match": "pattern::[a-zA-Z_][a-zA-Z0-9_]*\\b"
+                },
+                {
+                    "name": "entity.name.type.track.antescofo",
+                    "match": "track::[a-zA-Z_][a-zA-Z0-9_]*\\b"
+                }
+            ]
+        },
+        "operators": {
+            "name": "keyword.operator.antescofo",
+            "match": "(\\+|\\-|\\*|\\/|%|==|!=|<|<=|>|>=|&&|\\|\\||!|=)"
+        },
+        "builtin-functions": {
+            "name": "support.function.builtin.antescofo",
+            "match": "(?i)\\b(print|cos|sin|tan|sqrt|abs|floor|ceil|round|min|max|size|empty|car|cdr|cons|append|reverse|sort|member|map|filter|fold|reduce|count|find|take|drop|slice|concat|split|join|string|symbol|number|list|tab|make_tab|make_list|is_string|is_number|is_list|is_tab|is_symbol|is_bool|is_undef|type_of|load|save|read_file|write_file|host_date|time|now|random|rand|rand_int|hz2midi|midi2hz|hz2symb|symb2hz)\\b"
+        }
+    }
+}
+
+

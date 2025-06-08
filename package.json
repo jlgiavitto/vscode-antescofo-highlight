@@ -1,0 +1,51 @@
+{
+    "name": "antescofo-language-support",
+    "displayName": "Antescofo Language Support",
+    "description": "Syntax highlighting for Antescofo reactive music language",
+    "version": "1.0.0",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "keywords": [
+        "antescofo",
+        "music",
+        "reactive",
+        "ircam",
+        "score"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "antescofo",
+                "aliases": [
+                    "Antescofo",
+                    "antescofo"
+                ],
+                "extensions": [
+                    ".asco",
+                    ".asco.txt"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "antescofo",
+                "scopeName": "source.antescofo",
+                "path": "./syntaxes/antescofo.tmLanguage.json"
+            }
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/your-username/antescofo-vscode"
+    },
+    "author": {
+        "name": "Jean-Louis Giavitto"
+    },
+    "license": "MIT"
+}
+

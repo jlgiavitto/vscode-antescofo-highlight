@@ -1,0 +1,59 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Local TimTsoum directories
+# NB: slash on the end, so we only remove
+# the FOLDER, not any files that were badly named "DerivedData"
+.vscode
+Tmp/
+_build/
+_deps/
+_Ext/
+_buildMake/
+_BuildMakeDebug/
+_BuildDebug/
+_BuildRelease/
+_BuildMakeRelease/
+_BuildXcode/
+_BuildNinja/
+_BuildIOS/
+_BuildIOSsimul/
+_BuildDocker/
+_BuildAndroidDebug/
+_BuildAndroidRelease/
+tests/Listening/Build/
+tests/Listening/resultat/
+tests/Listening/Resultats
+.clang-format
+
+Configs/config_user.cmake
