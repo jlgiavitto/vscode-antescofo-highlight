@@ -8,7 +8,7 @@ Antescofo est un couplage d'une machine d'écoute temps réel avec un langage sy
 
 ## Fonctionnalités
 
-- **Coloration syntaxique complète** : Support pour tous les éléments syntaxiques d'Antescofo
+- **Coloration syntaxique** : Support pour les éléments syntaxiques d'Antescofo
 - **Reconnaissance des mots-clés** : Événements (NOTE, CHORD, TRILL, BPM) et actions (GROUP, LOOP, etc.)
 - **Support des identifiants spéciaux** :
   - Variables `$variable`
