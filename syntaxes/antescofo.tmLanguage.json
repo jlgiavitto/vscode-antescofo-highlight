@@ -81,7 +81,7 @@
         },
         "event-keywords": {
             "name": "keyword.control.event.antescofo",
-            "match": "(?i)\\b(note|chord|trill|bpm|event)\\b"
+            "match": "(?i)\\b(note|chord|trill|bpm|event|multi)\\b"
         },
         "action-keywords": {
             "name": "keyword.control.action.antescofo",
