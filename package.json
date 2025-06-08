@@ -1,52 +1,108 @@
 {
-    "name": "antescofo-language-support",
-    "displayName": "Antescofo Language Support",
-    "description": "Syntax highlighting for Antescofo reactive music language",
-    "version": "1.0.0",
-    "engines": {
-        "vscode": "^1.60.0"
-    },
-    "categories": [
-        "Programming Languages"
-    ],
-    "keywords": [
-        "antescofo",
-        "music",
-        "reactive",
-        "ircam",
-        "score"
-    ],
-    "contributes": {
-        "languages": [
-            {
-                "id": "antescofo",
-                "aliases": [
-                    "Antescofo",
-                    "antescofo"
-                ],
-                "extensions": [
-                    ".asco",
-                    ".asco.txt"
-                ],
-                "configuration": "./language-configuration.json"
-            }
+  "name": "antescofo-support",
+  "displayName": "Antescofo Full Support",
+  "description": "Full support for Antescofo: syntax highlighting, OSC commands, and Ascograph control",
+  "version": "0.2.0",
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "antescofo",
+    "music",
+    "reactive",
+    "score",
+    "max (cycling)",
+    "puredata"
+  ],
+  "contributes": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jlgiavitto/vscode-antescofo-highlight"
+  },
+  "author": {
+    "name": "Jean-Louis Giavitto"
+  },
+  "publisher": "JeanLouisGiavitto",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onLanguage:antescofo",
+    "onCommand:antescofo.sendScore",
+    "onCommand:antescofo.sendSelection",
+    "onCommand:antescofo.play",
+    "onCommand:antescofo.playFromCursor",
+    "onCommand:antescofo.stop",
+    "onCommand:antescofo.evalCommand"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "antescofo",
+        "aliases": [
+          "Antescofo",
+          "antescofo"
         ],
-        "grammars": [
-            {
-                "language": "antescofo",
-                "scopeName": "source.antescofo",
-                "path": "./syntaxes/antescofo.tmLanguage.json"
-            }
-        ]
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/jlgiavitto/vscode-antescofo-highlight"
-    },
-    "author": {
-        "name": "Jean-Louis Giavitto"
-    },
-    "publisher":  "JeanLouisGiavitto",
-    "license": "MIT"
+        "extensions": [
+          ".asco",
+          ".asco.txt"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "antescofo",
+        "scopeName": "source.antescofo",
+        "path": "./syntaxes/antescofo.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "antescofo.sendScore",
+        "title": "Antescofo: Send Full Score"
+      },
+      {
+        "command": "antescofo.sendSelection",
+        "title": "Antescofo: Send Selection"
+      },
+      {
+        "command": "antescofo.play",
+        "title": "Antescofo: Play"
+      },
+      {
+        "command": "antescofo.playFromCursor",
+        "title": "Antescofo: Play from Cursor"
+      },
+      {
+        "command": "antescofo.stop",
+        "title": "Antescofo: Stop"
+      },
+      {
+        "command": "antescofo.evalCommand",
+        "title": "Antescofo: Eval Command"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Antescofo Settings",
+      "properties": {
+        "antescofo.host": {
+          "type": "string",
+          "default": "127.0.0.1",
+          "description": "OSC host for Antescofo"
+        },
+        "antescofo.port": {
+          "type": "number",
+          "default": 5678,
+          "description": "OSC port for Antescofo"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "osc": "^2.4.2"
+  }
 }
-
