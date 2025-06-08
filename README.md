@@ -30,19 +30,12 @@ Antescofo est un couplage d'une machine d'écoute temps réel avec un langage sy
 
 ### Méthode 1: Installation manuelle
 
-1. Téléchargez ou clonez ce dépôt
-2. Copiez le dossier dans votre répertoire d'extensions VS Code :
+1. Téléchargez ou clonez ce dépôt dans le dossier dans votre répertoire d'extensions VS Code :
    - **Windows**: `%USERPROFILE%\.vscode\extensions\`
    - **macOS**: `~/.vscode/extensions/`
    - **Linux**: `~/.vscode/extensions/`
-3. Redémarrez VS Code
+2. Redémarrez VS Code
 
-### Méthode 2: Installation depuis VSIX (si disponible)
-
-1. Ouvrez VS Code
-2. Allez dans Extensions (Ctrl+Shift+X)
-3. Cliquez sur "..." puis "Install from VSIX..."
-4. Sélectionnez le fichier `.vsix`
 
 ## Structure des fichiers
 
@@ -112,7 +105,7 @@ $myVar := 42
 ### Attributs (préfixés par @)
 - `@tempo`, `@sync`, `@tight`, `@loose`
 - `@local`, `@global`, `@immediate`
-- Et bien d'autres...
+- Et quelques autres...
 
 ## Contribution
 
@@ -131,8 +124,7 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 
 MIT License - Voir le fichier LICENSE pour plus de détails.
 
-## Auteurs
+## Auteur
 
-Basé sur la documentation officielle d'Antescofo et inspiré du package
-Sublime Text existant.
+Jean-Louis Giavitto
 
