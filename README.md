@@ -41,7 +41,8 @@ On peut changer le port et l'adresse à laquelle on contacte antescofo~ via le f
    - **Windows**: `%USERPROFILE%\.vscode\extensions\`
    - **macOS**: `~/.vscode/extensions/`
    - **Linux**: `~/.vscode/extensions/`
-2. Redémarrez VS Code
+2. Renommer le `JeanLouisGiavitto.antescofo-support`
+3. démarrez VS Code
 
 
 ## Structure des fichiers
