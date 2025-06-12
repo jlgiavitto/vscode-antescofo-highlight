@@ -41,9 +41,12 @@ On peut changer le port et l'adresse à laquelle on contacte antescofo~ via le f
    - **Windows**: `%USERPROFILE%\.vscode\extensions\`
    - **macOS**: `~/.vscode/extensions/`
    - **Linux**: `~/.vscode/extensions/`
-2. Renommer le `JeanLouisGiavitto.antescofo-support`
-3. dans ce repertoire, faire `npm install`qui va installer les packages requis ([osc.js](https://github.com/colinbdclark/osc.js) et ses dépendances)
+2. Renommer le `jeanlouisgiavitto.antescofo-support`
+3. dans ce repertoire, faire `npm install` qui va installer les packages requis ([osc.js](https://github.com/colinbdclark/osc.js) et ses dépendances)
 4. Démarrez VS Code
+    - vérifer que l''extension est bien installée et fonctionne
+      - Il doit y avoir une page "Antescofo Support" dans la liste des extensions. Si elle n'y apparait pas, demander à Claude.ia ou bien à ChatGPT comment tracer son chargement effectif pour diagnostiquer le problème). 
+      - L'onglet "Feature" sur cette page doit iundiquer un "Runtime Status" à "activated".
 
 
 ## Structure des fichiers
@@ -72,6 +75,8 @@ On peut débuguer depuis VScode : ouvrir le fichier extension.js puis lancer l'e
 Les commandes se lancent via la palette (⌘⇧P) : Elles débutent toute par `Antescofo:`.
 
 Pour lier une commande à un racourcie clavier (⌘K⌘S) qui ouvre la fenêtre Keyboard Shortcuts et ensuite sercher antescofo 
+
+Pour que la commande soit interprété, il faut qu'il y ait un objet antescofo dnas un patch Max ou PureData ouvert. Il faut que antescofo ait activé un port en entrée. Sur Max, il suffit de double-cliquer sur l'objet. Le sports peuvent se parametrer dans l'inspecteur. En cas de changement, ne pas oublier de changer le port de communication dans VSCode (⌘,).  
 
 
 ## Exemples de syntaxe
