@@ -1,12 +1,12 @@
 {
   "name": "antescofo-support",
-  "displayName": "Antescofo Full Support",
-  "description": "Full support for Antescofo: syntax highlighting, OSC commands, and Ascograph control",
+  "displayName": "Antescofo Support",
+  "description": "Support for Antescofo: syntax highlighting and OSC commands",
   "version": "0.2.0",
   "categories": [
     "Programming Languages"
   ],
-  "keywords": [
+  "keywords": [ 
     "antescofo",
     "music",
     "reactive",
@@ -14,29 +14,21 @@
     "max (cycling)",
     "puredata"
   ],
-  "contributes": {
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/jlgiavitto/vscode-antescofo-highlight"
   },
   "author": {
-    "name": "Jean-Louis Giavitto"
+    "name": "Jean-Louis Giavitto",
+    "url": "https://antescofo-doc.ircam.fr/"
   },
   "publisher": "JeanLouisGiavitto",
+  "icon": "./logo_antescofo_doc_couleur.png",
   "engines": {
-    "vscode": "^1.70.0"
+    "vscode": "^1.22.0"
   },
   "main": "./extension.js",
-  "activationEvents": [
-    "onLanguage:antescofo",
-    "onCommand:antescofo.sendScore",
-    "onCommand:antescofo.sendSelection",
-    "onCommand:antescofo.play",
-    "onCommand:antescofo.playFromCursor",
-    "onCommand:antescofo.stop",
-    "onCommand:antescofo.evalCommand"
-  ],
+  "activationEvents": [ "*" ],
   "contributes": {
     "languages": [
       {
@@ -61,10 +53,6 @@
     ],
     "commands": [
       {
-        "command": "antescofo.sendScore",
-        "title": "Antescofo: Send Full Score"
-      },
-      {
         "command": "antescofo.sendSelection",
         "title": "Antescofo: Send Selection"
       },
@@ -73,12 +61,12 @@
         "title": "Antescofo: Play"
       },
       {
-        "command": "antescofo.playFromCursor",
-        "title": "Antescofo: Play from Cursor"
-      },
-      {
         "command": "antescofo.stop",
         "title": "Antescofo: Stop"
+      },
+      {
+        "command": "antescofo.start",
+        "title": "Antescofo: Start"
       },
       {
         "command": "antescofo.evalCommand",
@@ -98,11 +86,21 @@
           "type": "number",
           "default": 5678,
           "description": "OSC port for Antescofo"
+        },
+        "antescofo.hosteditor": {
+          "type": "string",
+          "default": "127.0.0.1",
+          "description": "incomming OSC host for VSCode"
+        },
+        "antescofo.porteditor": {
+          "type": "number",
+          "default": 6789,
+          "description": "incoming OSC port for VSCode"
         }
       }
     }
   },
   "dependencies": {
-    "osc": "^2.4.2"
+    "osc": "^2.4.5"
   }
 }

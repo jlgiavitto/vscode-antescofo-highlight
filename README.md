@@ -22,13 +22,13 @@ Antescofo est un couplage d'une machine d'écoute temps réel avec un langage sy
     - Tracks `track::track`
 
 - **Commandes :** envoyées via OSC à Antescofo. Accessible via la palette de commande
-  - "Antescofo: Send Full Score"
   - "Antescofo: Send Selection"
   - "Antescofo: Play"
-  - "Antescofo: Play from Cursor"
+  - "Antescofo: Start"
   - "Antescofo: Stop"
   - "Antescofo: Eval Command"
-On peut changer le port et l'adresse à laquelle on contacte antescofo~ via le fichier de configuration (pomme-,) puis en filtrant avec "antescofo" pour retrouver les variables correspodnantes.
+  
+On peut changer le port et l'adresse à laquelle on contacte antescofo~ via le fichier de configuration (⌘,) puis en filtrant avec `antescofo` pour retrouver les variables correspondantes.
 
 ## Extensions de fichiers supportées
 
@@ -42,7 +42,8 @@ On peut changer le port et l'adresse à laquelle on contacte antescofo~ via le f
    - **macOS**: `~/.vscode/extensions/`
    - **Linux**: `~/.vscode/extensions/`
 2. Renommer le `JeanLouisGiavitto.antescofo-support`
-3. démarrez VS Code
+3. dans ce repertoire, faire `npm install`qui va installer les packages requis ([osc.js](https://github.com/colinbdclark/osc.js) et ses dépendances)
+4. Démarrez VS Code
 
 
 ## Structure des fichiers
@@ -58,11 +59,20 @@ antescofo-language-support/
 
 ```
 
-## Utilisation
+## Debug
+
+On peut débuguer depuis VScode : ouvrir le fichier extension.js puis lancer l'exécution de l'extension en mode debug avec F5 (🌐 + f5). Dans la fenêtre qui s'ouvre, aller dans un fichier .asco.txt et lancer les commandes. 
+
+# Utilisation
 
 1. Ouvrez un fichier avec l'extension `.asco` ou `.asco.txt`
 2. VS Code devrait automatiquement détecter le langage Antescofo
 3. Si ce n'est pas le cas, cliquez sur le sélecteur de langage en bas à droite et choisissez "Antescofo"
+
+Les commandes se lancent via la palette (⌘⇧P) : Elles débutent toute par `Antescofo:`.
+
+Pour lier une commande à un racourcie clavier (⌘K⌘S) qui ouvre la fenêtre Keyboard Shortcuts et ensuite sercher antescofo 
+
 
 ## Exemples de syntaxe
 

@@ -3,32 +3,34 @@ const osc = require("osc");
 
 function getOscPort() {
     const config = vscode.workspace.getConfiguration("antescofo");
+    console.log("JeanLouis getOscPort", config.get("port"));
+
     return new osc.UDPPort({
-        localAddress: "0.0.0.0",
-        localPort: 57121,
+        localAddress: config.get("hosteditor"),
+        localPort: config.get("porteditor"),
         remoteAddress: config.get("host"),
         remotePort: config.get("port")
     });
 }
 
 function sendOscMessage(address, args) {
+    console.log("JeanLouis sendOscMessage adress", address, "and args:", args);
     const port = getOscPort();
-    port.open();
-    port.on("ready", function () {
-        port.send({ address, args });
-        port.close();
+    port.on("error", function (error) {
+        console.log("Erreur port UDP: ", error.message);
     });
+    port.on("ready", function () {
+        const message = { address: address, args: args };
+        port.send(message);
+        setTimeout(() => { port.close(); }, 100);
+    });
+    port.open();
 }
 
 function activate(context) {
+    console.log("JeanLouis Extension Antescofo activée");
+
     context.subscriptions.push(
-        vscode.commands.registerCommand("antescofo.sendScore", () => {
-            const editor = vscode.window.activeTextEditor;
-            if (editor) {
-                const fullText = editor.document.getText();
-                sendOscMessage("/antescofo/cmd", [{ type: "s", value: "score" }, { type: "s", value: fullText }]);
-            }
-        }),
         vscode.commands.registerCommand("antescofo.sendSelection", () => {
             const editor = vscode.window.activeTextEditor;
             if (editor) {
@@ -39,15 +41,11 @@ function activate(context) {
         vscode.commands.registerCommand("antescofo.play", () => {
             sendOscMessage("/antescofo/cmd", [{ type: "s", value: "play" }]);
         }),
-        vscode.commands.registerCommand("antescofo.playFromCursor", () => {
-            const editor = vscode.window.activeTextEditor;
-            if (editor) {
-                const line = editor.selection.active.line + 1;
-                sendOscMessage("/antescofo/cmd", [{ type: "s", value: "playfrom" }, { type: "i", value: line }]);
-            }
-        }),
         vscode.commands.registerCommand("antescofo.stop", () => {
-            sendOscMessage("/antescofo/cmd", [{ type: "s", value: "stop" }, ]);
+            sendOscMessage("/antescofo/cmd", [{ type: "s", value: "stop" },]);
+        }),
+        vscode.commands.registerCommand("antescofo.start", () => {
+            sendOscMessage("/antescofo/cmd", [{ type: "s", value: "start" },]);
         }),
         vscode.commands.registerCommand("antescofo.evalCommand", async () => {
             const input = await vscode.window.showInputBox({ prompt: "Enter Antescofo Command" });
@@ -59,5 +57,7 @@ function activate(context) {
 }
 
 exports.activate = activate;
+
 function deactivate() { }
 exports.deactivate = deactivate;
+

@@ -33,6 +33,7 @@
 
 # modules required by the extension and installed by vscode
 node_modules/
+package-lock.json
 
 .vscode/
 
